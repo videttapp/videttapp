@@ -4,9 +4,26 @@
 
         <div class="container main-content">
             
-            <form method="POST" action="/verify-input">
-                <label for="input1">Pass:</label>
-                <input type="text" name="input1" id="input1">
+            <form method="POST" action="/verify-input" class="verify-form">
+                <h1>Required entry quiz</h1>
+
+                {% if err != "none" %}
+                <div class="error">
+                    <strong>Error - incorrect answers</strong>
+                </div>
+
+                <br>
+                {% endif %}
+
+                <label for="DOB">Your birth day:</label><br>
+                <input type="date" name="DOB" id="DOB">
+
+                <br><br>
+
+                <label for="favorite-colleague">The name of your favorite colleague:</label><br>
+                <input type="text" name="favorite-colleague" id="favorite-colleague">
+
+                <br><br>
 
                 <button type="submit">Submit</button>
             </form>
