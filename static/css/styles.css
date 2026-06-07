@@ -6,23 +6,27 @@
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    margin: 0px;
+    margin: 0;
     background-image: linear-gradient(to bottom, rgb(93, 148, 142), rgb(49, 85, 83));
 }
 
 .main-content {
     display: flex;
     width: 60%;
-    height: 100vh;
+    margin: 0 auto; /* centers it properly */
+    min-height: 100vh;
     flex-direction: column;
     padding: 25px;
-    background-image: linear-gradient(to bottom, rgb(123, 158, 144), rgb(52, 78, 63));
-    box-shadow: 0px 0px 12px 4px rgba(0, 0, 0, 0.37);
-    border-radius: 0px;
-    padding-top: 60px;
 }
+
+
+@media (max-width: 768px) {
+    .main-content {
+        width: 100%;
+        margin: 0;
+    }
+}
+
 
 .title-text {
     font-family: "UnifrakturCook", cursive;
@@ -33,7 +37,6 @@ body {
     margin-top: 50px;
     margin-bottom: 0px;
 }
-
 
 .title-img {
     width: 536px;
@@ -118,3 +121,4 @@ body {
 .nav-list li a:hover {
     background: #333;
 }
+
