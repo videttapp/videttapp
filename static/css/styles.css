@@ -1,0 +1,23 @@
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.main-content {
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+}
+
+.title-img {
+    width: 536px;
+    height: 171px;
+}
+
+.title-text {
+    font-family: "UnifrakturCook", cursive;
+    font-weight: 700;
+    font-style: normal;
+}
+
