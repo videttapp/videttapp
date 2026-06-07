@@ -41,6 +41,12 @@ def verify_input():
         return redirect("/verify?err=invalid")
 
 
+@app.route("/lock")
+def lock():
+    del session["verified"]
+    return redirect("/verify")
+
+
 if __name__ == "__main__":
     app.run(
         host="0.0.0.0",
