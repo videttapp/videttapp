@@ -31,19 +31,28 @@ def verify():
 
 @app.route("/verify-input", methods=["POST"])
 def verify_input():
-    dob = request.form.get("DOB")
-    favorite_colleague = request.form.get("favorite-colleague")
+    dob = request.form.get("DOB", "")
+    favorite_colleague = request.form.get("favorite-colleague", "")
+
     if dob[-5:] == "06-06":
-        if favorite_colleague.lower().strip() in ["jacob", "jacob carter", "jacob c", "jake", "jakobski", "jacobski", "jacob william carter"]:
+        if favorite_colleague.lower().strip() in [
+            "jacob",
+            "jacob carter",
+            "jacob c",
+            "jake",
+            "jakobski",
+            "jacobski",
+            "jacob william carter"
+        ]:
             session["verified"] = 1
             return redirect("/")
-    else:
-        return redirect("/verify?err=invalid")
+
+    return redirect("/verify?err=invalid")
 
 
 @app.route("/lock")
 def lock():
-    del session["verified"]
+    session.pop("verified", None)
     return redirect("/verify")
 
 
