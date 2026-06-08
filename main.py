@@ -33,17 +33,47 @@ def verify():
 def verify_input():
     dob = request.form.get("DOB", "")
     favorite_colleague = request.form.get("favorite-colleague", "")
-
-    if dob[-5:] == "06-06":
-        if favorite_colleague.lower().strip() in [
-            "jacob",
-            "jacob carter",
-            "jacob c",
-            "jake",
-            "jakobski",
-            "jacobski",
-            "jacob william carter"
-        ]:
+    good_list = [
+        "jacob",
+        "jacob carter",
+        "jacob c",
+        "jake",
+        "jakobski",
+        "jacobski",
+        "jacob william carter"
+        "jacob1carter",
+        "jwc",
+        "jacob willian carter"
+    ]
+    bad_list = [
+        "lara",
+        "lara drew",
+        "la la",
+        "lauren",
+        "lkd",
+        "lovanoid",
+        "drew",
+        "will",
+        "maj",
+        "will majury"
+        "willaim",
+        "william majury"
+        "william maj",
+        "will jam",
+        "william jam",
+        "jam jam",
+        "jammy will"
+        "jam",
+        "majury"
+        "liam"
+        "liam maj"
+    ]
+    
+    if favorite_colleague.lower().strip() in bad_list:
+        print("HERE")
+        return redirect("/verify?err=traitor")
+    elif favorite_colleague.lower().strip() in good_list:
+        if dob[-5:] == "06-06":
             session["verified"] = 1
             return redirect("/")
 

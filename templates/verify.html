@@ -9,7 +9,11 @@
 
                 {% if err != None %}
                 <div class="error">
+                    {% if err == "invalid" %}
                     <strong>Error - incorrect answers</strong>
+                    {% elif err == "traitor" %}
+                    <strong>Error - TRAITOR</strong>
+                    {% endif %}
                 </div>
 
                 <br>
